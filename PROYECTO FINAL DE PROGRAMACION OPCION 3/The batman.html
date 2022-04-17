@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--==TITULO===========================-->
+<title>The Batman - PINOLAB</title>
+
+<!--Stylesheet(CSS)====================-->
+<link rel="stylesheet" href="css/style.css">
+
+<!--==icon-Pinolab=========================-->
+<link rel="shortcut icon" href="Images/Icon-Pinolab.png">
+
+<!--==Importar-Poppins-font================-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!--==Importar-Monoton-Font================-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+<!--==Usar-Font-Awesome===========================-->
+<script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+
+<!--==IMPORTAR LIBRERIA DE JQUERY DE GOOGLE======================================-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js"></script>
+
+</head>
+<body>
+    <!--==Scroll-Progeso-bar-->
+    <div id="progreso">
+        <span id="valor-progreso"></span>
+    </div>
+
+    <!--Navegación=========================-->
+    <nav class="navegacion">
+
+        <!--botono de menu------------------->
+        <input type="checkbox" class="menu-btn" id="menu-btn">
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+
+        <!--Logo----------------------------->
+        <a href="index.html" class="logo">
+            PINOLAB
+        </a>
+
+        <!--Menu----------------------------->
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Series.html">Series</a></li>
+            <li><a href="Peliculas.html">Peliculas</a></li>
+            <li><button id="open"><a>Contacto</a></button></li>
+            <li><button id="b1"><a>Ubicaciones</a></button></li>
+        </ul>
+
+        <!--BOTON DE MAPA-->
+        <div class="modal-container2" id="modal_container2">
+            <div class="modal2">
+               <h1>Ubicaciones de Cines en Durango</h1>
+            </br>
+             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1LfQ5pS2b7cgLWRHywyI4wPEKbBOHMvMS&ehbc=2E312F"></iframe>
+             </br>
+             </br>
+             <button id="close2" class="close2">Cerrar</button>
+            </div>
+         </div>
+ 
+         <script>
+            //OCULTAR AL INICIAR
+          $(".modal-container2").hide();
+          $(".modal2").hide();
+ 
+           //MOSTRAR CUADRO CON MAPA
+          $("#b1").click(function () {
+           $(".modal2").show("swing");
+          });
+ 
+          //MOSTRAR FONDO PARA DIFUMINAR
+          $("#b1").click(function(){
+             $(".modal-container2").show();
+          });
+ 
+          //CERRAR CUADRO CON MAPA
+          $("#close2").click(function () {
+           $(".modal2").hide();
+         });
+ 
+          //OCULTAR FONDO PARA DIFUMINAR
+         $("#close2").click(function () {
+           $(".modal-container2").hide();
+         });
+         </script>
+ 
+         <!--BOTON DE CONTACTO-->
+         <div class="modal-container" id="modal_container">
+            <div class="modal">
+               <h1>Contactanos</h1>
+               </br>
+               <p>
+                  <p><strong>Eduardo Garcia Flores:</strong></p>
+                  <a href="mailto:eduardogf312@gmail.com? subject=subject text" target="_blank">correo: eduardogf312@gmail.com</a>
+                  <p>telefono: 618-823-5547</p>
+                  </br>
+                  <p><strong>Gustavo Campagne Carrasco:</strong></p>
+                  <a href="mailto:gustavodante202@gmail.com? subject=subject text" target="_blank">correo: gustavodante202@gmail.com</a>
+                  <p>telefono: 618-356-4435</p>
+                  </br>
+                  <p><strong>Luis Eduardo Ontiveros Davila:</strong></p>
+                  <a href="mailto:luiis110799@gmail.com? subject=subject text" target="_blank">correo: luiis110799@gmail.com</a>
+                  <p>telefono: 677-885-8894</p>
+                  </br>
+               </p>
+               <button id="close" class="close">Cerrar</button>
+            </div>
+         </div>
+ 
+         <script>
+          //OCULTAR AL INICIAR
+          $(".modal-container").hide();
+          $(".modal").hide();
+ 
+           //MOSTRAR CUADRO CON INFO
+          $("#open").click(function () {
+           $(".modal").show("swing");
+          });
+ 
+          //MOSTRAR FONDO PARA DIFUMINAR
+          $("#open").click(function(){
+             $(".modal-container").show();
+          });
+ 
+          //CERRAR CUADRO CON INFO
+          $("#close").click(function () {
+           $(".modal").hide();
+         });
+ 
+          //OCULTAR FONDO PARA DIFUMINAR
+         $("#close").click(function () {
+           $(".modal-container").hide();
+         });
+       </script>
+
+        <!--Search-box----------------------->
+        <form action="" class="search-box">
+            <!--input-->
+            <input type="search" name="search" placeholder="Buscar Pelicula o Serie" class="search-input" id="input-search" autocomplete="off" required/>
+            <!--busqueda-->
+            <div class="content-search">
+               <div class="content-table">
+                  <table id="table">
+                     <thead>
+                        <tr>
+                           <td></td>
+                        </tr>
+                     </thead>
+
+                     <tbody>
+                        <tr>
+                           <td><a href="#">American Psycho</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">Dark</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">Dune</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">El caballero oscuro</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">El libro de boba Fett</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">Euphoria</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">La guerra del mañana</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="Loki.html">Loki</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">Luca</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="Peacemaker.html">Peacemaker</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="Spiderman-Man-No-way-home.html">Spider-Man: No Way Home</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="The batman.html">The Batman</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">The Boys</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="The-good-doctor.html">The Good Doctor</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">Tiempo</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="Venom.html">Venom</a></td>
+                        </tr>
+                        <tr>
+                           <td><a href="#">WandaVision</a></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+        </form>
+        
+    </nav>
+    <!--nav-end=====-->
+
+    <!--==Banner-Pelicula===================================-->
+    <section class="banner-pelicula">
+
+        <!--==img====================================-->
+        <div class="p-banner-img">
+            <img src="Paginas-con-trailer/The batman/cover.jpg" alt="">
+        </div>
+
+        <!--CONTENIDO================================-->
+        <div class="banner-contenedor">
+
+            <!--titulo-contenedor***********************-->
+            <div class="titulo-contenedor">
+                <!--titulo-top==============-->
+                <div class="titulo-top">
+                <!--titulo----->
+                <div class="titulo-pelicula">
+                    <h1>The Batman</h1>
+                </div>
+                <!--mas acerca de la pelicula-->
+                <div class="mas-acerca-pelicula">
+                    <span class="tipo">Película</span>
+                    <div class="rating">
+                        8.4 <img src="images/IMDb-icon.png" alt="imbd">
+                    </div>
+                    <span>3 Marzo 2022</span>
+                    <span>2h 56m</span>
+                </div>
+                <!--idioma-->
+                <div class="idioma-original">
+                    <span>Ingles</span>
+                </div>
+
+                </div>
+
+
+                <!--Titulo-fondo==================================-->
+                <div class="titulo-fondo">
+                    <!--categoria------>
+                    <div class="categoria">
+                        <strong>Categoría</strong><br/>
+                        <a href="#">Acción</a>,<a href="#">Drama</a>,<a href="#">Misterio</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--play-btn************************************-->
+            <div class="play-btn-contenedor">
+                <div class="play-btn">
+                    <a href="javascript:void">
+                        <i class="fas fa-play"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!--Trailer*************************************-->
+            <div id="play" class="play">
+                <!--cerrar-btn------------->
+                <a href="javascript:void" class="cerrar-trailer">
+                    <i class="fas fa-times"></i>
+                </a>
+                <!--pelicula-trailer------->
+                <div class="play-trailer">
+                    <iframe id="p-trailer" width="560" height="315"src="https://www.youtube.com/embed/FUP3P9_mqvA?autoplay=1&mute=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!--Banner-end--------------------->
+
+
+
+    <!--detalles===================================-->
+    <section class="detalles-pelicula">
+        <strong>The Batman</strong>
+        <p>Cuando un asesino se dirige a la élite de Gotham con una serie de maquinaciones sádicas, un rastro de pistas crípticas envía Batman a una investigación en los bajos fondos. A medida que las pruebas comienzan a acercarse a su casa y se hace evidente la magnitud de los planes del autor, Batman debe forjar nuevas relaciones, desenmascarar al culpable y hacer justicia al abuso de poder y la corrupción que durante mucho tiempo han asolado Gotham City.</p>
+    </section>
+
+
+    <!--==ScreenShots==============================-->
+    <section class="screenshots">
+        
+        <strong>ScreenShots</strong>
+        <!--contenedor-de-screenshots---------->
+        <div class="screen-s-contenedor">
+            <img src="Paginas-con-trailer/The batman/screenshot1.jpg" alt="">
+            <img src="Paginas-con-trailer/The batman/screenshot2.jpg" alt="">
+            <img src="Paginas-con-trailer/The batman/screenshot3.jpg" alt="">
+            <img src="Paginas-con-trailer/The batman/screenshot4.jpg" alt="">
+        </div>
+    </section>
+
+    <!--Pie-de-página--=============================-->
+    <footer>
+        <a href="index.html" class="logo">
+          PINOLAB  
+        </a>
+        <!--copyright-->
+        <span class="copyright">
+            Copyright 2022 - PINOLAB
+        </span>
+    </footer>
+
+    <!--==jQuery==============================-->
+    <script src="js/jQuery.js"></script> 
+    <script src="js/jquery1.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <!--== Funcion de buscar JS=====================-->
+    <script src="js/search.js"></script>
+    
+    <script>
+        /*==scroll-barra-progreso=======================*/
+        let scrollPorcentaje = () =>{
+            let scrollProgreso = document.getElementById("progreso");
+            let Valorprogreso = document.getElementById("valor-progreso");
+            let pos = document.documentElement.scrollTop;
+            let calcularHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let Valorscroll = Math.round(pos * 100 / calcularHeight);
+            scrollProgreso.style.background = `conic-gradient(#E70634 ${Valorscroll}%, #2b2f38 ${Valorscroll}%)`;
+        }
+        window.onscroll = scrollPorcentaje;
+        window.onload = scrollPorcentaje;
+
+        /*--menu-btn-fixed-when-scroll=========*/
+        $(window).scroll(function(){
+            if($(document).scrollTop() > 20){
+                $('.navegacion').addClass('fix-icon');
+            }
+            else{
+                $('.navegacion').removeClass('fix-icon');
+            }
+        });
+
+        /*==popup-abrir======================================*/
+        $(document).on('click','.play-btn a',function(){
+            $('.play').addClass('active-popup');
+        });
+        /*==popup-Cerrar======================================*/
+        $(document).on('click','.cerrar-trailer',function(){
+            $('.play').removeClass('active-popup');
+        });
+
+        /*==Cerrar-trailer-cuando-popup-se-cierra================*/
+        $('.cerrar-trailer').click(function(){
+            var video = $("#p-trailer").attr("src");
+            $("#p-trailer").attr("src","");
+            $("#p-trailer").attr("src",video);
+        });
+
+      </script>
+</body>
+</html>
